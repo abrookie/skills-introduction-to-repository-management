@@ -100,8 +100,12 @@ jobs:
               message: ''
             }
 
-            // Check that file exists
-            if (!fs.existsSync('add-issue-templates/.github/ISSUE_TEMPLATE/bug_report.md')) {
+            // Check that file exists in either the dedicated branch checkout or current branch
+            const bugReportTemplatePaths = [
+              'add-issue-templates/.github/ISSUE_TEMPLATE/bug_report.md',
+              '.github/ISSUE_TEMPLATE/bug_report.md'
+            ];
+            if (!bugReportTemplatePaths.some(path => fs.existsSync(path))) {
               result.passed = false;
               result.message = 'File is missing.';
             }
@@ -123,8 +127,12 @@ jobs:
               message: ''
             }
 
-            // Check that file exists
-            if (!fs.existsSync('add-issue-templates/.github/ISSUE_TEMPLATE/feature_request.md')) {
+            // Check that file exists in either the dedicated branch checkout or current branch
+            const featureRequestTemplatePaths = [
+              'add-issue-templates/.github/ISSUE_TEMPLATE/feature_request.md',
+              '.github/ISSUE_TEMPLATE/feature_request.md'
+            ];
+            if (!featureRequestTemplatePaths.some(path => fs.existsSync(path))) {
               result.passed = false;
               result.message = 'File is missing.';
             }
