@@ -100,9 +100,10 @@ jobs:
               message: ''
             }
 
-            // Check that file exists in either the dedicated branch checkout or current branch
+            // Check that file exists in either branch checkout
             const bugReportTemplatePaths = [
               'add-issue-templates/.github/ISSUE_TEMPLATE/bug_report.md',
+              'prepare-to-collaborate/.github/ISSUE_TEMPLATE/bug_report.md',
               '.github/ISSUE_TEMPLATE/bug_report.md'
             ];
             if (!bugReportTemplatePaths.some(path => fs.existsSync(path))) {
@@ -127,9 +128,10 @@ jobs:
               message: ''
             }
 
-            // Check that file exists in either the dedicated branch checkout or current branch
+            // Check that file exists in either branch checkout
             const featureRequestTemplatePaths = [
               'add-issue-templates/.github/ISSUE_TEMPLATE/feature_request.md',
+              'prepare-to-collaborate/.github/ISSUE_TEMPLATE/feature_request.md',
               '.github/ISSUE_TEMPLATE/feature_request.md'
             ];
             if (!featureRequestTemplatePaths.some(path => fs.existsSync(path))) {
